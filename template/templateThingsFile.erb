@@ -1,0 +1,15 @@
+Thing <%= data['thingTypeUID'] %>:<%= data['bridgeThingName'] %>:<%= data['thingIdentifier'] %> "<%= data['thing_label'] %>" (<%= data['bridgeUID'] %>) [
+    host = "<%= data['host'] %>"
+] {
+    Channels:
+    Type <%= data['channel_type'] %> : <%= data['channelIdentifier'] %> [
+        <% if data['stateTopic'] %>stateTopic = "<%= data['stateTopic'] %>",<% end %>
+        <% if data['commandTopic'] %>commandTopic = "<%= data['commandTopic'] %>",<% end %>
+        <% if data['postCommand'] %>postCommand = <%= data['postCommand'] %>,<% end %>
+        <% if data['retained'] %>retained = <%= data['retained'] %>,<% end %>
+        <% if data['qos'] %>qos = <%= data['qos'] %>,<% end %>
+        <% if data['transformationPattern'] %>transformationPattern = "<%= data['transformationPattern'] %>",<% end %>
+        <% if data['transformationPatternOut'] %>transformationPatternOut = "<%= data['transformationPatternOut'] %>"<% end %>
+    ]
+    here
+}

@@ -1,0 +1,42 @@
+Thing mqtt:topic:MQTTBroker:switchdesu "switch dayo" (mqtt:broker:MQTTBroker) [
+    host = "172.23.81.17"
+] {
+    Channels:
+    Type switch : switch1 [
+        
+        
+        
+        
+        
+         transformationPattern = "JSONPATH:$.switch1", 
+         transformationPatternOut = "JSONPATH:$.switch1", 
+        
+         commandTopic = "cmd/switch1", 
+         stateTopic = "dt/switch1" 
+    ]
+    Type switch : switch2 [
+        
+        
+        
+        
+        
+         transformationPattern = "JSONPATH:$.switch2", 
+         transformationPatternOut = "JSONPATH:$.switch2", 
+        
+         commandTopic = "cmd/switch2", 
+         stateTopic = "dt/switch2" 
+    ]
+    Type switch : switch3 [
+        
+        
+        
+        
+        
+         transformationPattern = "JSONPATH:$.switch3", 
+         transformationPatternOut = "JSONPATH:$.switch3", 
+        
+         commandTopic = "cmd/switch3", 
+         stateTopic = "dt/switch3" 
+    ]
+    
+}
