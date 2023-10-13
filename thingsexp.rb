@@ -1,19 +1,18 @@
 require 'roo'
 require 'erb'
 
-xlsx = Roo::Excelx.new(ARGV[0])
-xlsx.default_sheet = xlsx.sheets.first
-row_count = xlsx.last_row
+xlsx = Roo::Excelx.new(ARGV[0]) # Excelファイルを指定
+row_count = xlsx.last_row # Excelの行数を確認
 variables = xlsx.row(1)
 values = xlsx.row(2)
-data = {}
+data = {} # Excelの1行目と2行目を対応付ける
 variables.each_with_index do |variable, index|
   data[variable] = values[index]
 end
 
-erb_template = ERB.new(File.read(ARGV[1]), trim_mode: '-')
-output = erb_template.result(binding)
-File.open("#{__dir__}/template/created_thing.erb", 'w') { |file| file.write(output) }
+erb_template = ERB.new(File.read(ARGV[1]), trim_mode: '-') # erbファイルを開く
+output = erb_template.result(binding) # erbファイルを書き換える
+File.open("#{__dir__}/template/created_thing.erb", 'w') { |file| file.write(output) } # 新しいファイルにoutputでの変更を書き換える
 
 if row_count >= 3
   (3..xlsx.last_row).each do |row_number|
@@ -27,22 +26,22 @@ if row_count >= 3
     File.open("#{__dir__}/template/created_channel.erb", 'w') { |file| file.write(new_output) }
     channel_erb = File.read("#{__dir__}/template/created_channel.erb")
     parent_erb = File.read("#{__dir__}/template/created_thing.erb")
-    updated_content = parent_erb.gsub("here", channel_erb)
+    updated_content = parent_erb.gsub("here", channel_erb) # parent_erb内の"here"をchannel_erbに書き換える
     File.open("#{__dir__}/template/created_thing.erb", 'w') do |file|
-      file.puts updated_content
+      file.puts updated_content # created_thing.erbにupdated_contentでの変更を書き換える
     end
   end
 end
 
 parent_erb = File.read("#{__dir__}/template/created_thing.erb")
-remove_here = parent_erb.gsub("here", "")
+remove_here = parent_erb.gsub("here", "") # parent_erb内の"here"を取り除く
 File.open("#{__dir__}/template/created_thing.erb", 'w') do |file|
-  file.puts remove_here
+  file.puts remove_here # created_thing.erbにremove_hereでの変更を書き換える
 end
 File.open("#{__dir__}/template/created_thing.erb", "r") do |input_file|
   File.open("#{__dir__}/template/fixed_thing.erb", "w") do |output_file|
     input_file.each_line do |line|
-      output_file.write(line) unless line.strip.empty?
+      output_file.write(line) unless line.strip.empty? # 空行以外を書き込み
     end
   end
 end
