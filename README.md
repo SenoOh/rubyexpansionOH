@@ -10,10 +10,8 @@
 # Setup
 ## openHAB
 ### Linux
-```
 まず、openHAB リポジトリキーをパッケージマネージャーに追加する
 
-`$ wget https://github.com/emcrisostomo/fswatch/releases/download/1.14.0/fswatch-1.14.0.tar.gz`
 `$ curl -fsSL "https://openhab.jfrog.io/artifactory/api/gpg/key/public" | gpg --dearmor > openhab.gpg`
 `$ sudo mkdir /usr/share/keyrings`
 
@@ -45,7 +43,7 @@ openHABのインストール完了後，下記コマンドを実行してopenHAB
 
 初回起動に約15分かかる
 起動後，ブラウザ上で http://localhost:8080 を開くとpenHABの画面が開くので，各種初期設定を行う．
-```
+
 
 # Usage
 ## Settings
