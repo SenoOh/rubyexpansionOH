@@ -12,24 +12,36 @@
 ### Linux
 ```
 まず、openHAB リポジトリキーをパッケージマネージャーに追加する
-`$ curl -fsSL "https://openhab.jfrog.io/artifactory/api/gpg/key/public" | gpg --dearmor > openhab.gpg`
-`$ sudo mkdir /usr/share/keyrings`
+
+'$ curl -fsSL "https://openhab.jfrog.io/artifactory/api/gpg/key/public" | gpg --dearmor > openhab.gpg'
+'$ sudo mkdir /usr/share/keyrings'
+
 既に存在している場合がある．
-`$ sudo mv openhab.gpg /usr/share/keyrings`
-`$ sudo chmod u=rw,g=r,o=r /usr/share/keyrings/openhab.gpg`
+
+'$ sudo mv openhab.gpg /usr/share/keyrings'
+'$ sudo chmod u=rw,g=r,o=r /usr/share/keyrings/openhab.gpg'
+
 openHABが置いてあるリポジトリを追加する．
 stable版
-`$ echo 'deb [signed-by=/usr/share/keyrings/openhab.gpg] https://openhab.jfrog.io/artifactory/openhab-linuxpkg stable main' | sudo tee /etc/apt/sources.list.d/openhab.list`
+
+'$ echo 'deb [signed-by=/usr/share/keyrings/openhab.gpg] https://openhab.jfrog.io/artifactory/openhab-linuxpkg stable main' | sudo tee /etc/apt/sources.list.d/openhab.list'
+
 test版
-`$ echo 'deb [signed-by=/usr/share/keyrings/openhab.gpg] https://openhab.jfrog.io/artifactory/openhab-linuxpkg testing main' | sudo tee /etc/apt/sources.list.d/openhab.list`
+
+'$ echo 'deb [signed-by=/usr/share/keyrings/openhab.gpg] https://openhab.jfrog.io/artifactory/openhab-linuxpkg testing main' | sudo tee /etc/apt/sources.list.d/openhab.list'
+
 apt のパッケージリストを更新後，openHABをインストール
-`$ sudo apt-get update`
-`$ sudo apt-get install openhab`
+
+'$ sudo apt-get update'
+'$ sudo apt-get install openhab'
+
 openHABのインストール完了後，下記コマンドを実行してopenHABを起動
-`$ sudo systemctl start openhab.service`
-`$ sudo systemctl status openhab.service`
-`$ sudo systemctl daemon-reload`
-`$ sudo systemctl enable openhab.service`
+
+'$ sudo systemctl start openhab.service'
+'$ sudo systemctl status openhab.service'
+'$ sudo systemctl daemon-reload'
+'$ sudo systemctl enable openhab.service'
+
 初回起動に約15分かかる
 起動後，ブラウザ上で http://localhost:8080 を開くとpenHABの画面が開くので，各種初期設定を行う．
 ```
