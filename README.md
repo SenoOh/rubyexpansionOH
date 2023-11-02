@@ -13,6 +13,7 @@
 ```
 まず、openHAB リポジトリキーをパッケージマネージャーに追加する
 
+`$ wget https://github.com/emcrisostomo/fswatch/releases/download/1.14.0/fswatch-1.14.0.tar.gz`
 `$ curl -fsSL "https://openhab.jfrog.io/artifactory/api/gpg/key/public" | gpg --dearmor > openhab.gpg`
 `$ sudo mkdir /usr/share/keyrings`
 
