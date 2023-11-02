@@ -48,7 +48,8 @@ $ sudo systemctl enable openhab.service
 
 
 初回起動に約15分かかる
-起動後，ブラウザ上で http://localhost:8080 を開くとpenHABの画面が開くので，各種初期設定を行う．
+
+起動後，ブラウザ上で http://localhost:8080 を開くとpenHABの画面が開くので各種初期設定を行う
 
 
 # Usage
