@@ -1,0 +1,16 @@
+Thing mqtt:topic:MQTTBroker:<%= data['thingID'] %> "<%= data['label'] %>" (mqtt:broker:MQTTBroker) [
+    host = "172.23.81.17"
+] {
+    Channels:
+    Type number : <%= data['channelID'] %> [
+        <% if data['postCommand'] %> postCommand = <%= data['postCommand'] %>, <% end %>
+        <% if data['retained'] %> retained = <%= data['retained'] %>, <% end %>
+        <% if data['qos'] %> qos = <%= data['qos'] %>, <% end %>
+        <% if data['transformationPattern'] %> transformationPattern = "<%= data['transformationPattern'] %>", <% end %>
+        <% if data['transformationPatternOut'] %> transformationPatternOut = "<%= data['transformationPatternOut'] %>", <% end %>
+        <% if data['formatBeforePublish'] %> formatBeforePublish = "<%= data['formatBeforePublish'] %>", <% end %>
+        <% if data['commandTopic'] %> commandTopic = "<%= data['commandTopic'] %>", <% end %>
+        <% if data['stateTopic'] %> stateTopic = "<%= data['stateTopic'] %>" <% end %>
+    ]
+    here
+}

@@ -1,0 +1,11 @@
+Type number : <%= new_data['channelID'] %> [
+        <% if new_data['postCommand'] %> postCommand = <%= new_data['postCommand'] %>, <% end %>
+        <% if new_data['retained'] %> retained = <%= new_data['retained'] %>, <% end %>
+        <% if new_data['qos'] %> qos = <%= new_data['qos'] %>, <% end %>
+        <% if new_data['transformationPattern'] %> transformationPattern = "<%= new_data['transformationPattern'] %>", <% end %>
+        <% if new_data['transformationPatternOut'] %> transformationPatternOut = "<%= new_data['transformationPatternOut'] %>", <% end %>
+        <% if new_data['formatBeforePublish'] %> formatBeforePublish = "<%= new_data['formatBeforePublish'] %>", <% end %>
+        <% if new_data['commandTopic'] %> commandTopic = "<%= new_data['commandTopic'] %>", <% end %>
+        <% if new_data['stateTopic'] %> stateTopic = "<%= new_data['stateTopic'] %>" <% end %>
+    ]
+    here
